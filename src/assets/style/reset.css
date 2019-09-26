@@ -1,0 +1,171 @@
+body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,figure,form,fieldset,legend,input,textarea,button,p,blockquote,th,td,pre,xmp{margin:0;padding:0}
+body,input,textarea,button,select,pre,xmp,tt,code,kbd,samp{line-height:1.5;font-family: Arial, "Microsoft Yahei";}
+h1,h2,h3,h4,h5,h6,small,big,input,textarea,button,select{font-size:100%}
+h1,h2,h3,h4,h5,h6{font-family:tahoma,arial,"Hiragino Sans GB","微软雅黑",simsun,sans-serif}
+h1,h2,h3,h4,h5,h6,b,strong{font-weight:normal}
+address,cite,dfn,em,i,optgroup,var{font-style:normal}
+table{border-collapse:collapse;border-spacing:0;text-align:left}
+caption,th{text-align:inherit}
+ul,ol,menu{list-style:none}
+fieldset,img{border:0}
+img,object,input,textarea,button,select{vertical-align:middle}
+article,aside,footer,header,section,nav,figure,figcaption,hgroup,details,menu{display:block}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
+blockquote:before,blockquote:after,q:before,q:after{content:"\0020"}
+textarea{overflow:auto;resize:vertical}
+input,textarea,button,select,a{outline:0 none;border: none;appearance:none;}
+button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0}
+mark{background-color:transparent}
+a,ins,s,u,del{text-decoration:none}
+sup,sub{vertical-align:baseline}
+html {overflow-x: hidden;height: 100%;-webkit-tap-highlight-color: transparent;}
+body {font-family: Arial, "Microsoft Yahei";color: #333;font-size: .16rem;line-height: 1;-webkit-text-size-adjust: none;height: 100%;user-select: none;overflow: hidden;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;line-height:0;font-size:0}
+.clearfix{*zoom:1;}
+hr {height: .02rem;margin: .1rem 0;border: medium none;border-top: .02rem solid #cacaca;}
+a {color: #25a4bb;text-decoration: none;}
+.tc{text-align: center;}
+.tr{text-align: right;}
+.tl{text-align: left;}
+.fl{float: left;}
+.fr{float: right;}
+img{max-width: 100%;}
+.pm1{padding-bottom: 1rem;}
+span,i{display: inline-block}
+.mask{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9;  /* 一级阴影*/
+    background: rgba(0,0,0,0.3);
+}
+*{
+    box-sizing: border-box;
+}
+/* 键盘 */
+.txtSearchBox{
+    position:relative;
+    left: 0px;
+    top: -384px;
+    width:19.2rem;
+    background:#fff;
+    font-size: .28rem;
+    line-height: .53rem;
+    padding: .05rem .05rem 119px;
+    border: .01rem solid #C8CACF;
+    border-bottom: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.txtSearchBox span{
+    display: inline-block;
+    font-size: .28rem;
+    margin-left: .15rem;
+    line-height: .53rem;
+    padding: 0 .25rem;
+    color: #fff;
+    background: #E9570E;
+    border-radius: .05rem;
+    cursor: pointer;
+    border: .01rem solid #C64200;
+    user-select: none;
+
+}
+.txtSearchWrap{
+    display: inline-block;
+    border: .01rem solid #C8CACF;
+    -webkit-box-sizing: border-box;
+    width:60%;
+    background: #dadada;
+    box-sizing: border-box;
+}
+.txtSearchWrap input{
+    outline: none;
+    border: none;
+    text-indent: 0.16rem;
+    line-height: .53rem;
+    background: none;
+    width: 100%;
+    font-size: .28rem;
+}
+.w225{width: 14.91%;padding-left:.4rem;box-sizing: border-box;}
+.w147{width:11.85%;}
+.w310{width: 25%}
+.w325{width: 26.2%}
+.w230{width: 18.54%}
+/* 虚拟键盘 */
+#copyrights,#kb_mappingselector,#kb_langselector{
+    display: none;
+}
+#VirtualKeyboardIME{
+    z-index: 100;
+}
+#VirtualKeyboardIME{
+    transform:scale(2.94) translate(33%,39%);
+}
+.pubScrollbar::-webkit-scrollbar {
+    width: .3rem;    
+}
+.pubScrollbar::-webkit-scrollbar-thumb {
+    border-radius:.15rem;
+    -webkit-box-shadow: inset 0 0 5px #3c70a1;
+    background: #3c70a1;
+
+}
+.pubScrollbar::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px #3c70a1;
+    border-radius: 0;
+    background: rgba(0,0,0,0.1);
+}
+.iconSelect{
+    display:inline-block;
+    /* background:url(../images/select.png) center no-repeat; */
+    background-size: 100% 100%;
+
+}
+.iconSelect.active{
+    display:inline-block;
+    /* background:url(../images/selecton.png) center no-repeat; */
+    background-size: 100% 100%;
+
+}
+.noFind{
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    font-size:.32rem;
+    font-weight: bold;
+}
+/* vue-sweetalert2 重置样式*/
+.swal2-container  .swal2-popup{
+    display: block;
+    font-size: .26rem !important;
+}
+.swal2-container .swal2-popup .swal2-actions{
+    text-align: center;
+}
+/* 预览图片 */
+.mask3{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(0,0,0,0.8);
+}
+.preViewClose{  /* 预览图片按钮 */
+    position: absolute;
+    width: .6rem;
+    line-height: .6rem;
+    text-align: center;
+    right: 0;
+    top: 0;
+    z-index: 16;
+    cursor: pointer;
+}
+.preViewClose img{
+    width: .4rem;
+}
