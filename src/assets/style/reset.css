@@ -19,7 +19,7 @@ mark{background-color:transparent}
 a,ins,s,u,del{text-decoration:none}
 sup,sub{vertical-align:baseline}
 html {overflow-x: hidden;height: 100%;-webkit-tap-highlight-color: transparent;}
-body {font-family: Arial, "Microsoft Yahei";color: #333;font-size: .16rem;line-height: 1;-webkit-text-size-adjust: none;height: 100%;user-select: none;overflow: hidden;}
+body {font-family: Arial, "Microsoft Yahei";color: #333;font-size: .16rem;line-height: 1;-webkit-text-size-adjust: none;height: 100%;user-select: none;overflow-x: hidden}
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;line-height:0;font-size:0}
 .clearfix{*zoom:1;}
 hr {height: .02rem;margin: .1rem 0;border: medium none;border-top: .02rem solid #cacaca;}
