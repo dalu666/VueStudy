@@ -8,14 +8,26 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: Home
+      name: "scroll",
+      component: () =>
+        import("./views/Scroll/Scroll.vue")
     },
     {
-      path: "/about",
-      name: "about",
+      path: "/",
+      name: "Main",
       component: () =>
-        import("./views/About.vue")
-    }
+        import("./views/Main/Index.vue")
+    },
+    // {
+    //   path: "/home",
+    //   name: "home",
+    //   component: Home
+    // },
+    // {
+    //   path: "/about",
+    //   name: "about",
+    //   component: () =>
+    //     import("./views/About.vue")
+    // }
   ]
 });

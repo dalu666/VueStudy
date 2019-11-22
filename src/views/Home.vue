@@ -1,5 +1,6 @@
 <template>
     <div>
+        
         <div class="babytitle">快乐baby</div>
         <swiper :options="swiperOption" ref="mySwiper" >
             <swiper-slide><img src="../assets/images/b1.png" alt=""></swiper-slide>
