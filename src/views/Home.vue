@@ -503,6 +503,10 @@
                </li>
            </ul>
            <div class="bottom tc">已到底</div>
+           <div class="tc codebox">
+               <p class="custom">欢迎关注下方二维码，定制个人网站。</p>
+               <img src="../assets/images/code.jpg" alt="">
+           </div>
        </div>
        <div v-show="imgtoggled">
            <div class="mask"></div>
@@ -514,15 +518,10 @@
        <div class="congratulate" v-show="canvastoggle">
            <div class="canvas" ref="canvas"></div>
            <ul class="tc">
-               <li>艺</li>
-               <li>展</li>
-               <li>祝</li>
-               <li>您</li>
-               <li>国</li>
-               <li>庆</li>
-               <li>快</li>
-               <li>乐</li>
-               <li>！</li>
+               <li>开</li>
+               <li>开</li>
+               <li>心</li>
+               <li>心</li>
            </ul>
        </div>
     </div>
@@ -572,7 +571,7 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
                     this.canvastoggle=false;
 
                 }
-            },200)
+            },100)
             
         },
         methods:{
@@ -761,5 +760,13 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
         right:0;
         background: #ee82ee;
         -webkit-transition: all 300ms linear; -moz-transition: all 300ms linear; -o-transition: all 300ms linear; -ms-transition: all 300ms linear; transition: all 300ms linear;
+    }
+    .codebox{
+        background:#ee82ee
+        padding-bottom:.25rem;
+    }
+    .custom{
+        color:#fff;
+        line-height:.5rem;
     }
 </style>
