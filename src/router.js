@@ -7,27 +7,36 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/",
-      name: "scroll",
-      component: () =>
-        import("./views/Scroll/Scroll.vue")
+      path: "/home",
+      name: "home",
+      component: Home
     },
     {
       path: "/",
+      name: "about",
+      component: () =>
+        import("./views/About.vue")
+    },
+    { 
+      path: "/scroll",
+      name: "Scroll",
+      redirect:'/scroll/linkage',
+      component:()=>import('./views/Scroll/Scroll.vue'),
+      children:[
+        {
+          path:'linkage',
+          name:'Linkage',
+          component:()=>import('./views/Scroll/Linkage/Linkage.vue')
+        }
+      ]
+    },
+    {
+      path: "/main",
       name: "Main",
       component: () =>
         import("./views/Main/Index.vue")
     },
-    // {
-    //   path: "/home",
-    //   name: "home",
-    //   component: Home
-    // },
-    // {
-    //   path: "/about",
-    //   name: "about",
-    //   component: () =>
-    //     import("./views/About.vue")
-    // }
+    
+   
   ]
 });
