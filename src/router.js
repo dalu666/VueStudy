@@ -27,6 +27,11 @@ export default new Router({
           path:'linkage',
           name:'Linkage',
           component:()=>import('./views/Scroll/Linkage/Linkage.vue')
+        },
+        {
+          path:'wate',
+          name:'Wate',
+          component:()=>import('./views/Scroll/Linkage/Wate.vue')
         }
       ]
     },

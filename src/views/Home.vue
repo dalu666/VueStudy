@@ -557,8 +557,7 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
             swiperSlide
         },
         computed: {
-            swiper() {
-            }
+            swiper() {}
         },
         created(){
             let num=0;

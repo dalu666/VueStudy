@@ -1,41 +1,61 @@
 <template>
     <div class="container">
-        <ul class="nav">
-            <router-link to="/scroll/linkage" tag="li" >联动</router-link>
-            <router-link to="/scroll/wate" tag="li" >瀑布</router-link>
-        </ul>
-        <router-view />
-        <!-- <div class="wrap" ref="wrap">
+        <vue-waterfall-easy :imgsArr="imgsArr" @scrollReachBottom="getData" ref="waterfall" >
+            <div class="img-info" slot-scope="props">
+                <p class="some-info">第{{props.index+1}}张图片</p>
+                <p class="some-info">{{props.value.info}}</p>
+            </div>
+            <div slot="waterfall-over">
+                <div class="">
+                    到底不了，也可以是别的内容。
+                    
+                </div>
+            </div>
+        </vue-waterfall-easy>
+        <div class="wrap" ref="wrap">
             <div class="content">
                 <ul>
-                    <li v-for="(item,index) in date" :key="index">{{item}}</li>
+                    <li v-for="(item,index) in date" :key="index">{{item}} </li>
                 </ul>
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 <script>
 import BScorll from 'better-scroll'
+import vueWaterfallEasy from 'vue-waterfall-easy'
 export default {
     name:'Scroll',
     data(){
         return{
             date:[],
-            page:1
+            page:1,
+            imgsArr:[],
+            group: 0,
         }
     },
-    created(){
-        
+    components: {
+        vueWaterfallEasy
     },
-    mounted(){
-        // this.getData();
-        // this.initScroll();
+    created(){
+        this.getData();
+        this.$nextTick(()=>{
+            this.initScroll();
+        })
     },
     methods:{
         getData(page){
+            console.log(this.group)
+            if(this.group===2){
+                this.$refs.waterfall.waterfallOver()
+                return;
+            }
             for(let i=10*(this.page-1);i<10*this.page;i++){
                 this.date.push(i)
+                let img={src:'http://39.105.45.48/img/kong.png?time='+i}
+                this.imgsArr = this.imgsArr.concat(img)
             }
+            this.group++;
         },
         initScroll(){
             this.wrapScroll=new BScorll(this.$refs.wrap,{
@@ -67,12 +87,14 @@ export default {
 }
 </script>
 <style lang="stylus"   scoped>
-@import '../../common/stylus/mixin.styl';
+@import '../../../common/stylus/mixin.styl';
 .container
     display flex
     flex-direction column
     width 100%
     height 100%
+    padding-bottom .5rem
+    box-sizing border-box
     .nav
         display flex 
         justify-content space-around
@@ -83,8 +105,9 @@ export default {
             line-height .4rem
     .wrap
         position relative // 定位用来控制滚动条
-        height 3rem
-        margin-top 2rem
+        height 1rem
+        margin-top 0.1rem
+        border-top 1px solid #ccc
         overflow hidden
         ul 
             li
