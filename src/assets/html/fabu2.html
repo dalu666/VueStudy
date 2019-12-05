@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>发布订阅者模式</h1>
+</body>
+<script>
+    let houseObj={};//发布者
+    houseObj.list={};//缓存列表（登记册）；
+    // 添加订阅者
+    houseObj.listen=function(key,fn){
+        // 订阅消息添加到缓存列表
+        if(!this.list[key]){
+            this.list[key]=[];
+        }
+        this.list[key].push(fn)
+        // ((this.list[key]) || (this.list[key]=[])).push(fn)
+    }
+    // 发布
+    houseObj.trigger=function(){
+        let key =Array.prototype.shift.apply(arguments);
+        let fns=this.list[key];
+        if(!fns || fns.length===0){
+            return;
+        }
+        for(let i=0,fn;fn=fns[i++];){
+            fn.apply(this,arguments)
+        }
+    }
+    houseObj.listen('big',function(size){
+        console.log('小红要的房子是'+size+'平米')
+    })
+    houseObj.listen('small',function(size){
+        console.log('小绿要的房子是'+size+'平米')
+    })
+    houseObj.trigger('big',100);
+    houseObj.trigger('small',50);
+</script>
+</html>

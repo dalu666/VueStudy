@@ -29,6 +29,7 @@
     "prettier": "^1.18.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "vue-template-compiler": "^2.6.10",
     "vue-waterfall-easy": "^2.4.4"
   },

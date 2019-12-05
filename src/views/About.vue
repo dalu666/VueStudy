@@ -6,6 +6,12 @@
     </div> -->
 
     <!-- for Vue 2.0 -->
+    <header-ma></header-ma>
+    <ul>
+      <router-link tag="li" to="/getserve">go getserve</router-link>
+      <router-link tag="li" to="/render">go render</router-link>
+      <router-link tag="li" to="/directive">go directive</router-link>
+    </ul>
     <div class="row">
       <span>Departure Date：</span>
       <date-picker :date="startTime" :option="option" :limit="limit"></date-picker>
@@ -15,6 +21,7 @@
 <script>
 // import myDatepicker from 'vue-datepicker'
 import myDatepicker from 'vue-datepicker/vue-datepicker-es6.vue' 
+import headerMa from '../components/header'
 export default {
   data () {
     return {
@@ -23,7 +30,6 @@ export default {
       // endtime: '2016-01-19',
       // testTime: '',
       // multiTime: '',
-
       // for Vue 2.0
       startTime: {
         time: ''
@@ -85,7 +91,8 @@ export default {
     }
   },
   components: {
-    'date-picker': myDatepicker
+    'date-picker': myDatepicker,
+    headerMa
   }
 }
 </script>

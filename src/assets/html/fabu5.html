@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>发布订阅者模式</h1>
+</body>
+<script>
+    let Event=(function(){
+        let list={},
+        listen,
+        trigger,
+        remove;
+        listen=function(key,fn){
+            ((list[key]) || (list[key]=[])).push(fn)
+        };
+        trigger=function(a,b){
+            // 取出对应的消息名称
+            let key =Array.prototype.shift.call(arguments);
+            // 对应的回调函数
+            let fns=list[key];
+            if(!fns || fns.length===0){
+                return;
+            }
+            for(let i=0,fn;fn=fns[i++];){
+                fn.apply(this,arguments)
+            }
+        };
+        remove=function(key,fn){
+            let fns=list[key];
+            if(!fns){
+                return false;
+            }
+            // 清空
+            if(!fn){
+                fn && (fns.length=0);
+            }else{
+                for(let i=fns.length-1;i>=0;i--){
+                    let _fn=fns[i]
+                    _fn === fn && (fns.splice(i,1))
+                }
+            }
+        };
+        return{
+            listen,
+            remove,
+            trigger
+        }
+    })()
+    
+
+    Event.listen('big',function(size){
+        console.log('小红要的房子是'+size+'平米')
+    })
+    Event.trigger('big',100);
+    // houseObj.trigger('small',50);
+    // console.log(houseObj.list)
+</script>
+</html>

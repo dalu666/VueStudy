@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>发布订阅者模式</h1>
+</body>
+<script>
+    let str="abcababacadaeddddddddd";
+    let obj={};
+    for(let i=0,length=str.length;i<length;i++){
+        let key=str.charAt(i);
+        if(obj[key]){
+            obj[key]++
+        }else{
+            obj[key]=1
+        }
+    }
+    let max=0;
+    for(let key in obj){
+        if(max<=obj[key]){
+            max=obj[key]
+        }
+        
+    }
+    for(let key in obj){
+        if(max==obj[key]){
+            console.log(key,max)
+        }
+    }
+
+    var fun = function(){}
+
+
+    var a = new fun();
+    var b = new fun();
+
+console.log(b)
+
+
+
+
+
+
+
+
+
+    let houseObj={};//发布者
+    houseObj.list=[];//缓存列表（登记册）；
+    // 添加订阅者
+    houseObj.listen=function(fn){
+        // 订阅消息添加到缓存列表
+        this.list.push(fn);
+    }
+    // 发布
+    houseObj.trigger=function(){
+        for(let i=0;i<this.list.length;i++){
+            this.list[i].apply(this,arguments)
+        }
+    }
+    houseObj.listen(function(size){
+        console.log('小红要的房子是'+size+'平米')
+    })
+    // houseObj.listen(function(size){
+    //     console.log('小绿要的房子是'+size+'平米')
+    // })
+    houseObj.trigger(100);
+    // houseObj.trigger(150);
+</script>
+</html>

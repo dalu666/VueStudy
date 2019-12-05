@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>prototype介绍</div>
+</body>
+<script>
+    let str="abacadaeaf";
+    let arr=str.split('')
+    let nameNum = arr.reduce((per,cur)=>{
+        if(!per.includes(cur)){
+            return per.concat(cur)
+        }else{
+            return per
+        }
+    },[])
+   
+
+    var fun = function(){}
+
+    fun.prototype = {
+        info : {
+        name : 'peter',
+        age : 25
+        }
+    }
+
+    var a = new fun();
+    var b = new fun();
+
+    a.info.name = 'jack';
+    b.info.name = 'tom';
+    let obj={};
+    let Funs=function(){}
+    Funs.prototype.a="abc"
+    let f1=new Funs()
+    // _proto_ 和 constructor 属性是对象所独有的，
+    // prototype 属性是函数所有有的，函数也是对象，所以函数也拥有_proto_ constructor 属性
+    // console.log(obj)
+    // console.log(f1)
+
+let obj2={};
+let stra=obj2.a || 'a'
+let abc=undefined;
+let num=0
+if(num){
+    console.log('true')
+}else{
+    console.log('false')
+}
+console.log(abc);
+
+
+
+
+
+
+
+
+
+// undefined 是一个变量， unll 是一个关键字
+// 工厂模式 本身就是一个方法
+(function(window,undefined){
+    function jquery(selector){
+        return new jquery.fn.init();
+    }
+    jquery.portotype={
+        init:function(){
+
+        }
+    }
+    // 享元模式--目的，减少对象数量
+    // 把这些对象分析，分析出是有的对象和方法，分析出公用的对象和方法
+    jquery.extends=function(){
+        // 健壮性的体现，反应错误使用出现问题
+        let target=arguments[0]||{};
+        let length=arguments.length;
+        let i=1
+        if(target!=='object'){
+            target={};
+        }
+        if(length===1){
+            target=this;
+            i--;
+        }
+        for(let item in obj){
+            target[item]=argument[i][item]
+        }
+    }
+    // 共享原型
+    jquery.prototype=jquery.portotype.init.prototype=jquery.fn;
+    window.jquery=jquery;
+    window.$=jquery
+},window,undefined)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
