@@ -8,9 +8,32 @@
 </head>
 
 <body>
+    <div id="app">6666</div>
     <h1>发布订阅者模式</h1>
 </body>
+<script src="./proxy.js"></script>
 <script>
+    let vm=new vue();
+    setTimeout(()=>{
+        console.log('change');
+        console.log(vm.$data);
+        vm.$data.a=444;
+    },2000);
+    
+
+
+    (function(){
+        var a=''
+        console.log(typeof a);
+        var a="123",
+            b=function(){
+                return "123"
+            };
+        function a(){
+            return '132'
+        }
+    })()
+
     let event={
         list:{},
         listen:function(key,fn){

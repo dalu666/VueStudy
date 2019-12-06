@@ -11,6 +11,7 @@
       <router-link tag="li" to="/getserve">go getserve</router-link>
       <router-link tag="li" to="/render">go render</router-link>
       <router-link tag="li" to="/directive">go directive</router-link>
+      <router-link tag="li" to="/jsfn">go jsfn</router-link>
     </ul>
     <div class="row">
       <span>Departure Date：</span>

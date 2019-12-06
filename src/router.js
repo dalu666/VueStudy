@@ -69,5 +69,11 @@ export default new Router({
       component: () =>
         import("./views/Getserve/Getserve.vue")
     },
+    {
+      path: "/jsfn",
+      name: "jsfn",
+      component: () =>
+        import("./views/Test/Jsfn.vue")
+    },
   ]
 });
