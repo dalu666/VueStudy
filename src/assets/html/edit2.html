@@ -1,0 +1,62 @@
+<head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>layui</title>
+    <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui-v2.5.4/css/layui.css" />
+    <script src="https://lib.baomitu.com/json3/3.3.3/json3.min.js"></script>
+    <script src="https://www.layuicdn.com/layui-v2.5.4/layui.all.js"></script>
+    <script src="https://lib.baomitu.com/echarts/4.2.1/echarts.min.js"></script>
+  <!--layui的table col操作列自定义的模板 您可以根据自己的实际情况改动-->
+    <script type="text/html" id="tableToolbar">
+      <div class="layui-inline" lay-event="add"><i class="layui-icon layui-icon-add-1"></i></div>
+      <div class="layui-inline" lay-event="update"><i class="layui-icon layui-icon-edit"></i></div>
+      <div class="layui-inline" lay-event="delete"><i class="layui-icon layui-icon-delete"></i></div>
+    </script>
+    <script type="text/html" id="tableColToolbar">
+      <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
+      <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+      <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+  </head>
+  <body class="layui-form" style="background-color:#eee;padding: 20px;">
+      <div class="layui-fluid">
+          <p style="width: 80px; float: left; height: 30px; line-height: 30px;">
+              住院号：
+          </p>
+          <input class="layui-input" style="width: 200px; height: 32px;" type="text" autocomplete="off" placeholder="住院号" /><u></u><p style="border-bottom-style: solid; height: 12px;"></p>
+          <input class="layui-input" style="text-align: center; margin-top: 15px; margin-bottom: 20px; height: 100px; font-size: 20px; font-weight: bold;" type="text" autocomplete="off" placeholder="医院名称" /><p style="text-align: center; font-size: 20px; font-weight: bold; height: 100px; line-height: 100px;">
+              手术记录
+          </p>
+          <p style="width: 80px; height: 30px; float: left; line-height: 32px;">
+              科别：
+          </p>
+          <input class="layui-input" style="width: 200px; height: 32px; float: left;" type="text" autocomplete="off" /><p style="width: 80px; height: 30px; float: left; line-height: 32px; margin-left: 500px;">
+              病床号
+          </p>
+          <input class="layui-input" style="width: 200px; height: 30px; float: left;" type="text" autocomplete="off" /><p style="height: 30px;"></p>
+          <p style="border-bottom-style: solid; border-bottom-width: 3px; margin-top: 16px;"></p>
+      </div>
+      <div class="layui-fluid" style="position: relative;">
+          <p style="width: 80px; height: 30px; line-height: 30px; top: 0px; margin-top: 1px; float: left;">
+              姓名：
+          </p>
+          <input class="layui-input" style="float: left; width: 200px; height: 32px;" type="text" autocomplete="off" /><p style="width: 80px; height: 30px; line-height: 30px; float: left; margin-left: 101px;">
+              性别
+          </p>
+          <div class="layui-inline" style="width: 200px; height: 30px; float: left; margin-top: -14px;">
+              <select style="text-decoration: underline;"><option value="0">男</option><option value="1">女</option></select>
+          </div>
+          <p style="width: 80px; height: 30px; line-height: 30px; float: left; margin-left: 159px;">
+              年龄
+          </p>
+          <input class="layui-input" style="width: 80px; height: 30px; float: left;" type="text" autocomplete="off" /><p style="width: 20px; height: 30px; line-height: 30px; float: left;">
+              岁
+          </p>
+      </div>
+      <!-- <div class="layui-fluid">
+          <p>
+              这是一段落这是一段落这是一段落这是一段落这是一段落这是一段落这是一段落这是一段落这是一段落这是一段落这是一段落这是一段落这是一段落
+          </p>
+      </div> -->
+  </body>
+  </html>

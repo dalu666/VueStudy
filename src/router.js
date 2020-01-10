@@ -75,5 +75,23 @@ export default new Router({
       component: () =>
         import("./views/Test/Jsfn.vue")
     },
+    {
+      path: "/draggable",
+      name: "draggable",
+      component: () =>
+        import("./views/Test/Draggable.vue")
+    },
+    {
+        path: "/dragg",
+        name: "dragg",
+        component: () =>
+          import("./views/Test/Dragg.vue")
+    },
+    {
+        path: "/api",
+        name: "api",
+        component: () =>
+          import("./views/Test/Api.vue")
+    },
   ]
 });

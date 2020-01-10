@@ -111,9 +111,10 @@
 //     parallel:require('os').cpus().length>1,
     
 // }
-
+// 036123370be57a70c2028664351808e4
 module.exports = {
     publicPath: '/',
+    
     devServer: {
         proxy: {
             '/api': {

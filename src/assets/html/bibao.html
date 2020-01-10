@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1{
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body>
+    <div>闭包</div>
+    <h1>今天是个好天气</h1>
+    <button id="size12">12</button>
+    <button id="size14">14</button>
+    <!-- <button id="size16">16</button> -->
+    <a href="#" id="size16">126</a>
+    <input type="text">
+</body>
+<script>
+    // 作用域链条，由下往上找，就近原则
+    function fn1(){
+        var name="lulu";
+        function fn2(){
+            var name = "lu";
+            console.log(name)
+        }
+        fn2()
+    }
+    fn1()
+    // v8引擎工作原理
+    // 语法检查阶段
+    // 运行阶段=》预解析，执行
+    // VO（变量对象） =>var，function
+
+    // 谁在调用，this指向谁
+
+    // scopes 作用域属性
+    // 保存自身作用域变量 对象
+    // 和父级变量对象 引用
+    function outer(){
+        var a1=0;
+        return function inner(){
+            return a1;
+        }
+    }
+    function fn5(){
+        var getInner=outer();
+        console.dir(getInner)
+    }
+    fn5();
+
+    // 闭包：
+    // 函数执行的时候 上下文都会有一个 scope属性
+    // 该属性作为一个作用域链，包含有该函数，被定义时所有外层变量对象的引用
+    // 所以定义的闭包函数销毁了，但是变量对象依然绑定在内部函数中（内存之中）
+    // 闭包就是这么形成的
+
+
+// 闭包 面向对象编程
+    function makeSize(size){
+        return  function(){
+            document.body.style.fontSize=size+'px';
+        }
+    }
+    // 共享相同的函数定义，保存了不同的词法环境
+    let size14=makeSize(14)
+    let size16=makeSize(16)
+    let size18=makeSize(18)
+    document.getElementById('size12').onclick=size14;
+    document.getElementById('size14').onclick=size16;
+    document.getElementById('size16').onclick=size18
+    
+    // 防抖
+    function demo2(){
+        console.log('ajax')
+    }
+    function debound(fn,time){
+        let setTime=null;
+        return function(){
+            if(setTime) clearTimeout(setTime);
+            setTime=setTimeout(fn,time)
+        }
+    }
+    let inputVal=document.querySelector('input');
+    inputVal.addEventListener('input',debound(demo2,1000))
+
+    // 是有方法好处
+    // 1.限制对代码访问，提高安全性。2.管理全局命名空间
+
+    let conter=(function(){
+        let privateConter=0;
+        function changeBy(val){
+            privateConter+= val;
+        }
+        return {
+            increment:function(){
+                changeBy(1)
+            },
+            deincrement:function(){
+                changeBy(-1)
+            },
+            value:function(){
+                return privateConter;
+            }
+        }
+    })()
+    console.log(conter.value());
+    conter.increment()
+    conter.increment()
+    console.log(conter.value());
+    conter.deincrement()
+    console.log(conter.value());
+
+    // 
+    function MyObject(name,message){
+        this.name=name.toString();
+        this.message=message.toString();
+    }
+    // 替代闭包
+    MyObject.prototype.getName=function(){
+        return this.name;
+    }
+    MyObject.prototype.getMesage=function(){
+        return this.message;
+    }
+    // 不建议重新定义原型
+    // MyObject.prototype={
+    //     getName:function(){
+    //         return this.name;
+    //     },
+    //     getMesage:function(){
+    //         return this.message;
+    //     }
+    // }
+
+
+    // 不建议重新定义原型
+
+</script>
+</html>
