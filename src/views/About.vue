@@ -1,5 +1,5 @@
 <template>
-  	<div class="about">
+  	<div class="about" id="">
 		<!-- <div class="row">
 		<span>Departure Date：</span>
 		<date-picker :time.sync="starttime" :option="option" :limit="limit"></date-picker>
@@ -15,8 +15,16 @@
 			<router-link tag="li" to="/draggable">go draggable</router-link>
             <router-link tag="li" to="/dragg">go dragg</router-link>
             <router-link tag="li" to="/api">vue 全局API</router-link>
-           
+           <router-link tag="li" to="/stylus">vue stylus</router-link>
+		   <router-link tag="li" to="/param/3">参数</router-link>
+		   	<li @click="goParam('Param')">传参</li>
+		   <router-link tag="li" to="/stylus/stylus2">vue stylus2</router-link>
+		   <li @click="goParam('TryCatch')">TryCatch</li>
+		    <li @click="goParam('Store')">Store</li>
 		</ul>
+		<div id="boxOut">
+			<div id="boxInner">内</div>
+		</div>
 		<div class="row">
 			<span>Departure Date：</span>
 			<date-picker :date="startTime" :option="option" :limit="limit"></date-picker>
@@ -97,6 +105,22 @@ export default {
 	components: {
 		'date-picker': myDatepicker,
 		headerMa
+	},
+	mounted(){
+		
+		this.$nextTick(()=>{
+			var  stWinBody= document.getElementById('boxOut')
+			stWinBody.addEventListener('scroll',()=>{
+			})
+            console.log('scrollTop',stWinBody.scrollTop)
+		})
+	},
+
+	methods:{
+		goParam(url){
+			// this.$router.push({path:'/param',query: {id:'1'}})
+			this.$router.push({name:url,params:{id:'1',test:'2'}})
+		}
 	}
 }
 </script>
@@ -105,4 +129,14 @@ export default {
         height:30px;
         line-height:30px;
     }
+	#boxOut
+		width 200px
+		height 200px
+		border 1px solid #cccccc
+		overflow auto
+		#boxInner
+			width 180px
+			height 300px
+			border 1px solid bule
+	
 </style>

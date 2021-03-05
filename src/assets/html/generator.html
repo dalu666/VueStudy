@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="gener" >Generator</div>
+</body>
+<script>
+    function* gener(){
+        yield 'hello';
+        yield 'word';
+        return 'over';
+    }  
+    let generN=gener()
+    let el=document.getElementById('gener');
+    el.addEventListener('click',function(){
+        console.log(gener().next())
+    })
+    function pu(num){
+        console.log(arguments)
+    }
+    // pu([1,2,3,4])
+
+    let jan=(...arg)=>{
+        console.log(arg)
+    }
+    // jan(1,2,3)
+    
+    var a = {i: 0};
+    //a[Symbol.toPrimitive]也可以直接写在对象中
+    // a[Symbol.toPrimitive] = function () {
+    //     // this指向的是a 让i每次进来+1
+    //     return ++this.i;
+    // };
+    a=[1,2,3]
+    a.toString=a.shift;
+    console.log(a)
+    if (a == 1 && a == 2 && a == 3) {
+        console.log('OK');//输出结果=======>OK
+    }
+    
+</script>
+</html>

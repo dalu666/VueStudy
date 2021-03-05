@@ -24,7 +24,6 @@
 //             warnings:false,
 //             errors:false
 //         },
-//         lintOnSave:false,
 //         compress:false,//开启压缩
 //         open:true,//启动时打开浏览器
 //         // 跨域请求
@@ -111,11 +110,19 @@
 //     parallel:require('os').cpus().length>1,
     
 // }
-// 036123370be57a70c2028664351808e4
+
+const PrerenderSPAPlugin=require("prerender-spa-plugin");
+const webpack=require("webpack");
+const path=require("path")
 module.exports = {
+   
     publicPath: '/',
-    
+    lintOnSave:false,
     devServer: {
+        overlay:{
+            warnings:false,
+            errors:false
+        },
         proxy: {
             '/api': {
                 target: 'http://localhost:3000',

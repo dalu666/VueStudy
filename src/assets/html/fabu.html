@@ -6,13 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-
+<style>
+    ul{
+        height: 20px;
+    }
+    li{
+        border: 1px solid #ccc;
+        height: 20px;
+        width: 20px ;
+        float: left;
+        list-style: none;
+    }
+    .item1{
+        margin-right: 5px;
+    }
+    .item2{
+        margin-left: 30px;
+    }
+</style>
 <body>
     <div id="app">6666</div>
     <h1>发布订阅者模式</h1>
+    <ul>
+        <li class="item1"></li>
+        <li  class="item2"></li>
+    </ul>
 </body>
+
 <script src="./proxy.js"></script>
 <script>
+    document.onclick=function(e){
+        e.preventDefault()
+        e=e||window.event;
+        let target=e.target 
+        console.log(target)
+    }
     let vm=new vue();
     setTimeout(()=>{
         console.log('change');

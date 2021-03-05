@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">home</router-link>
       <router-link to="/scroll/linkage">scroll</router-link>
-    </div>
+    </div> -->
     <keep-alive>
       <router-view />
     </keep-alive>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        border: 1px solid #ccc;
+        *zoom:1
+    }
+    .box:after{
+        content: '';
+        display: block;
+        height: 0;
+        visibility: hidden;
+        clear: both;
+
+    }
+    .left{
+        float: left;
+        border: 1px dotted #ccc;
+        width: 100px;
+        height: 100px;
+    }
+    .right{
+        float: right;
+        border: 1px dotted #ccc;
+        width: 100px;
+        height: 100px;
+    }
+    .textOver{
+        width: 150px;
+        height: 50px;
+        line-height: 25px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient:vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        
+    }
+</style>
+<body>
+    <div>123</div>
+    <div class="box">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div class="textOver">发送到发斯蒂芬打发斯蒂芬阿斯顿法师打发阿萨德法师法士大夫撒发送到发斯蒂芬</div>
+    <label for="id1"><input type="radio" name="fruit" id="id1">男</label>
+    <label for="id2"><input  name="fruit" type="radio" id="id2">女</label>
+</body>
+<script>
+   
+   console.log(location.href)
+   let url=location.href;
+   var urlParam=url.split('?')[1]
+   var urlParam2=urlParam.split('&')
+   var ulrObj={}
+   urlParam2.forEach(item=>{
+       let paramobj=item.split('=')
+        ulrObj[paramobj[0]]= paramobj[1]
+   })
+   console.log(ulrObj)
+</script>
+</html>
